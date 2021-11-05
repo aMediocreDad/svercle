@@ -19,56 +19,28 @@
 </script>
 
 <header>
-	<h1>Svercle</h1>
+	<a href="https://www.npmjs.com/package/svercle"><h1>Svercle</h1></a>
 </header>
 <main>
 	<ul>
 		<li>
 			<span>{config.curve}</span>
-			<input
-				id="curve"
-				type="range"
-				bind:value={config.curve}
-				min="0"
-				max="10"
-				step="0.1"
-			/>
+			<input id="curve" type="range" bind:value={config.curve} min="0" max="10" step="0.1" />
 			<label for="curve">Curve</label>
 		</li>
 		<li>
 			<span>{config.anchor}</span>
-			<input
-				id="anchor"
-				type="range"
-				bind:value={config.anchor}
-				min="0"
-				max="10"
-				step="0.1"
-			/>
+			<input id="anchor" type="range" bind:value={config.anchor} min="0" max="10" step="0.1" />
 			<label for="anchor">Anchor</label>
 		</li>
 		<li>
 			<span>{height}</span>
-			<input
-				id="height"
-				type="range"
-				bind:value={height}
-				min="50"
-				max="300"
-				step="10"
-			/>
+			<input id="height" type="range" bind:value={height} min="50" max="300" step="10" />
 			<label for="height">Width</label>
 		</li>
 		<li>
 			<span>{width}</span>
-			<input
-				id="width"
-				type="range"
-				bind:value={width}
-				min="50"
-				max="300"
-				step="10"
-			/>
+			<input id="width" type="range" bind:value={width} min="50" max="300" step="10" />
 			<label for="width">Height</label>
 		</li>
 	</ul>
@@ -79,9 +51,8 @@
 </main>
 <footer>
 	Lots of <span>💖</span> to whomever made this
-	<a
-		href="https://svelte.dev/repl/2319271d93c34981aafce411f8345be8?version=3.18.2"
-		rel="noopener">REPL example</a
+	<a href="https://svelte.dev/repl/2319271d93c34981aafce411f8345be8?version=3.18.2" rel="noopener"
+		>REPL example</a
 	>
 </footer>
 
@@ -155,13 +126,13 @@
 		color: darkslategray;
 	}
 
-	footer a {
+	a {
 		color: var(--color);
 		text-decoration: none;
 	}
 
-	footer a:hover,
-	footer a:focus-visible {
+	a:hover,
+	a:focus-visible {
 		text-decoration: underline;
 	}
 

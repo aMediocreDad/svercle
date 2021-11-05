@@ -12,7 +12,7 @@ Use this as buttons, cards, or any other element that you would like apply a fun
 
 ```bash
 #Grab the package from npm:
-npm install @amediocredev/svercle
+npm install svercle
 ```
 
 ## Usage
