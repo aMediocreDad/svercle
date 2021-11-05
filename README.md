@@ -1,38 +1,66 @@
-# create-svelte
+# Svercle
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
+![svercle-example](https://user-images.githubusercontent.com/9851733/140587531-dded69ec-507f-484a-8328-d8d3a0f43457.png)
 
-## Creating a project
+This is the Svercle. A small svelte component that produces a configurable superellipse approximation similar to a squircle. The component is based on this [REPL](https://svelte.dev/repl/2319271d93c34981aafce411f8345be8?version=3.18.2) (I have yet to find the author, but would like to thank them for all the work).
 
-If you're seeing this, you've probably already done this step. Congrats!
+Use this as buttons, cards, or any other element that you would like apply a funny shape to. The squircle is, after all, the cutest of all the shapes.
 
-```bash
-# create a new project in the current directory
-npm init svelte@next
+> Why an approximation you ask? In order to keep the generated svg small and reusable I decided to use an eight point approximation (see the REPL link above) which also allows for creating some truly interesting shapes.
 
-# create a new project in my-app
-npm init svelte@next my-app
-```
-
-> Note: the `@next` is temporary
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Install
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+#Grab the package from npm:
+npm install svercle
 ```
 
-## Building
+## Usage
 
-Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
+This library exports two components. A `Svercle` component and a `SvercleContainer` component.
 
-```bash
-npm run build
+- The `SvercleContainer` component is a simple wrapper around the `Svercle` component equipped with a grid and a slot for your content (makes it easy to use as a button).
+
+- The `Svercle` component is the actual component that you can use. It takes a `config` object as a prop.
+
+The `config` object has the following properties: `curve`, `anchor`, and `fill`.
+
+- The `curve` property is a number between `0` and `10` that determines the curvature of the superellipse.
+
+- The `anchor` property is a number between `0` and **10** that determines the corner sharpness.
+
+- The `fill` property is a string that determines the color of the superellipse. All properties are optional, and the `curve`, and `anchor` default to 5 and 0 respectively. While `fill` defaults to `#fff`.
+
+### Example:
+
+```html
+<script>
+	import { SvercleContainer } from 'svercle';
+
+	let config = {
+		curve: 6,
+		anchor: 0.2,
+		fill: '#e13c6e'
+	};
+</script>
+
+<button>
+	<SvercleContainer {config}><span>Click me!</span></SvercleContainer>
+</button>
+
+<style>
+	button {
+		padding: 0;
+		border: none;
+		background: none;
+		cursor: pointer;
+	}
+	span {
+		padding: 1rem 2rem;
+	}
+</style>
 ```
 
-> You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
+## License
+
+This component is licensed under the [MIT License (MIT)](./LICENSE).

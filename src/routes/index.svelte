@@ -4,7 +4,7 @@
 	let config = {
 		curve: 5,
 		anchor: 0,
-		fill: '#ED2F5B'
+		fill: '#e13c6e'
 	};
 
 	let height = 250;
@@ -24,48 +24,77 @@
 <main>
 	<ul>
 		<li>
+			<span>{config.curve}</span>
+			<input
+				id="curve"
+				type="range"
+				bind:value={config.curve}
+				min="0"
+				max="10"
+				step="0.1"
+			/>
 			<label for="curve">Curve</label>
-			<input id="curve" type="range" bind:value={config.curve} min="0" max="10" step="0.1" /><span
-				>{config.curve}</span
-			>
 		</li>
 		<li>
+			<span>{config.anchor}</span>
+			<input
+				id="anchor"
+				type="range"
+				bind:value={config.anchor}
+				min="0"
+				max="10"
+				step="0.1"
+			/>
 			<label for="anchor">Anchor</label>
-			<input id="anchor" type="range" bind:value={config.anchor} min="0" max="10" step="0.1" /><span
-				>{config.anchor}</span
-			>
 		</li>
 		<li>
+			<span>{height}</span>
+			<input
+				id="height"
+				type="range"
+				bind:value={height}
+				min="50"
+				max="300"
+				step="10"
+			/>
 			<label for="height">Width</label>
-			<input id="height" type="range" bind:value={height} min="50" max="300" step="10" /><span
-				>{height}</span
-			>
 		</li>
 		<li>
+			<span>{width}</span>
+			<input
+				id="width"
+				type="range"
+				bind:value={width}
+				min="50"
+				max="300"
+				step="10"
+			/>
 			<label for="width">Height</label>
-			<input id="width" type="range" bind:value={width} min="50" max="300" step="10" /><span
-				>{width}</span
-			>
 		</li>
 	</ul>
 
-	<div style="--height: {h}; --width:{w}">
+	<div class="svercle" style="--height: {h}; --width:{w}">
 		<SvercleContainer {config}>Hello!</SvercleContainer>
 	</div>
-
-	<footer style="--ellipse:data:url(image/svg+xml;utf8,{SvercleContainer})" />
 </main>
+<footer>
+	Lots of <span>💖</span> to whomever made this
+	<a
+		href="https://svelte.dev/repl/2319271d93c34981aafce411f8345be8?version=3.18.2"
+		rel="noopener">REPL example</a
+	>
+</footer>
 
 <style>
 	:global(body) {
-		min-height: 100vh;
+		min-height: 100%;
 		display: grid;
 		place-content: center;
 
 		font-family: sans-serif;
 		text-align: center;
 		font-weight: 700;
-		--color: #ed2f5b;
+		--color: #e13c6e;
 		color: var(--color);
 	}
 
@@ -89,7 +118,11 @@
 		align-self: baseline;
 	}
 	div :global(svg) {
-		filter: drop-shadow(2px 1px 6px #ed2f5b6c);
+		filter: drop-shadow(2px 1px 6px #e13c6e6c);
+	}
+
+	div.svercle {
+		color: whitesmoke;
 	}
 
 	ul {
@@ -104,19 +137,35 @@
 	}
 
 	label {
-		user-select: none;
+		font: bold 2rem sans-serif;
+		color: darkslategray;
+	}
+
+	span {
+		font-size: 1.1rem;
 	}
 
 	input {
 		accent-color: var(--color);
 	}
 
-	span {
-		font: bold 2rem sans-serif;
+	footer {
+		font-size: 0.9rem;
+		text-align: center;
 		color: darkslategray;
 	}
 
-	footer {
-		background-image: var(--ellipse);
+	footer a {
+		color: var(--color);
+		text-decoration: none;
+	}
+
+	footer a:hover,
+	footer a:focus-visible {
+		text-decoration: underline;
+	}
+
+	footer span {
+		filter: hue-rotate(345deg) saturate(0.5) brightness(1.5);
 	}
 </style>

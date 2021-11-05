@@ -1,9 +1,12 @@
 {
 	"name": "svercle",
-	"version": "0.0.1",
+	"version": "0.1.0",
+	"author": "Filip Ambrosius <hello@amediocre.dev>",
+	"license": "MIT",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
+		"package": "svelte-kit package",
 		"preview": "svelte-kit preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
@@ -23,7 +26,28 @@
 		"svelte-check": "^2.2.6",
 		"svelte-preprocess": "^4.9.4",
 		"tslib": "^2.3.1",
-		"typescript": "^4.4.3"
+		"typescript": "^4.4.3",
+		"svelte2tsx": "^0.4.8"
 	},
-	"type": "module"
+	"type": "module",
+	"description": "This is the Svercle. A small svelte component that produces a configurable superellipse approximation similar to a squircle. The component is based on this [REPL](https://svelte.dev/repl/2319271d93c34981aafce411f8345be8?version=3.18.2) (I have yet to find the author, but would like to thank them for all the work).",
+	"dependencies": {
+		"eslint-scope": "^5.1.1",
+		"eslint-visitor-keys": "^2.1.0",
+		"eslint-utils": "^2.1.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/aMediocreDad/svercle.git"
+	},
+	"keywords": [
+		"superellipse",
+		"ui",
+		"squircle",
+		"svelte"
+	],
+	"bugs": {
+		"url": "https://github.com/aMediocreDad/svercle/issues"
+	},
+	"homepage": "https://github.com/aMediocreDad/svercle#readme"
 }

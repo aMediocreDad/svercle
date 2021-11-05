@@ -20,9 +20,8 @@
 		height: 100%;
 		display: grid;
 		place-items: center;
-		color: whitesmoke;
 	}
-	.container :global(svg) {
+	.container :global(svg.svercle-svg-element) {
 		position: absolute;
 		top: 0;
 		left: 0;
